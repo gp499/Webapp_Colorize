@@ -26,11 +26,11 @@ app = Flask(__name__)
 run_with_ngrok(app)  
 
 # Model saved with Keras model.save()
-MODEL_PATH = '/Users/Desktop/Webapp_Colorize/models/baseline_mse_finetune_05-0.011.h5'
+MODEL_PATH = '/Webapp_Colorize/models/baseline_mse_finetune_05-0.011.h5'
 
 # Load your trained model
-model = load_model('/Users/91845/Desktop/Webapp_Colorize/models/baseline_mse_finetune_05-0.011.h5')
-model.load_weights('/Users/91845/Desktop/Webapp_Colorize/models/baseline_mse_finetune_05-0.011.h5')
+model = load_model('/Webapp_Colorize/models/baseline_mse_finetune_05-0.011.h5')
+model.load_weights('/Webapp_Colorize/models/baseline_mse_finetune_05-0.011.h5')
 #model._make_predict_function()          # Necessary
 i = 0
 #print('Model loaded. Check http://127.0.0.1:5000/')
@@ -66,7 +66,7 @@ def upload():
         f = request.files['file']
 
         # Save the file to ./uploads
-        basepath = os.path.dirname('/Users/91845/Desktop/Webapp_Colorize/')
+        basepath = os.path.dirname('/Webapp_Colorize/')
         file_path = os.path.join(
             basepath, 'uploads', secure_filename(f.filename))
         f.save(file_path)
@@ -89,7 +89,7 @@ def upload():
         output = lab2rgb(result)
         #plt.imshow(output)
         i += 1
-        plt.imsave("/Users/91845/Desktop/Webapp_Colorize/static/colorized"+str(i)+".png",output)
+        plt.imsave("/Webapp_Colorize/static/colorized"+str(i)+".png",output)
         return "colorized"+str(i)+".png"
     return None
 
